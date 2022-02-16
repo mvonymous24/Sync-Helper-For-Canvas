@@ -13,11 +13,12 @@ def copy(from_path, to_path, output_head):
             # print_text = output_head + '[folder] '+ to_path
             # print(print_text)
             for son in os.listdir(from_path):
-                if not os.path.exists(to_path):
-                    os.makedirs(to_path)
-                son_from_path = from_path + '/' + son
-                son_to_path = to_path + '/' + son
-                numcount += copy(son_from_path, son_to_path, output_head + '-')
+                if son is not '_canvas_grab_archive':
+                    if not os.path.exists(to_path):
+                        os.makedirs(to_path)
+                    son_from_path = from_path + '/' + son
+                    son_to_path = to_path + '/' + son
+                    numcount += copy(son_from_path, son_to_path, output_head + '-')
         else:
             shutil.copy(from_path, to_path)
             print(output_head, '[file] ', to_path)
