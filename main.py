@@ -48,6 +48,8 @@ if os.path.isdir(canvasGrabPath) and os.path.isdir(syncPath) :
     filenames = os.listdir(canvasGrabPath)
     numcount = 0
     for folder in filenames:
+        if folder == '_canvas_grab_archive':
+            continue
         print('-' * 20)
         print('-', folder)
         from_path = canvasGrabPath + '/' + folder
