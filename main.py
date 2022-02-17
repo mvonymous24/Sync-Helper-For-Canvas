@@ -14,7 +14,7 @@ def copy(from_path, to_path, output_head):
             # print(print_text)
             for son in os.listdir(from_path):
                 # print(son)
-                if son is not '_canvas_grab_archive':
+                if son != '_canvas_grab_archive':
                     if not os.path.exists(to_path):
                         os.makedirs(to_path)
                     son_from_path = from_path + '/' + son
