@@ -13,6 +13,7 @@ def copy(from_path, to_path, output_head):
             # print_text = output_head + '[folder] '+ to_path
             # print(print_text)
             for son in os.listdir(from_path):
+                # print(son)
                 if son is not '_canvas_grab_archive':
                     if not os.path.exists(to_path):
                         os.makedirs(to_path)
@@ -29,8 +30,7 @@ def copy(from_path, to_path, output_head):
 canvasGrabPath = 'canvas_grab-master/files'
 syncPath = 'Work/2021 - 2022 Spring'
 
-if not os.path.exists(syncPath):
-    os.makedirs(syncPath)
+
 
 # 1. run canvas grab modified .bat automatically
 # 2. duplicate files.
@@ -43,6 +43,9 @@ if os.path.isfile('.sync_config/canvas_grab_path_override.txt'):
 if os.path.isfile('.sync_config/sync_path.txt'):
     with open('.sync_config/sync_path.txt', 'r') as syncPathOverride:
         syncPath = syncPathOverride.read()
+        
+if not os.path.exists(syncPath):
+    os.makedirs(syncPath)
 
 if os.path.isdir(canvasGrabPath) and os.path.isdir(syncPath) :
     filenames = os.listdir(canvasGrabPath)
