@@ -1,6 +1,16 @@
 import os
 import shutil
 from os import walk
+# import re
+
+def checkOnedriveDisability(originalName, isChecking = True):
+    if isChecking:
+        ret = str.replace(originalName, '/ ', '/')
+        print('[Rename For Onedrive]', originalName, 'to', ret)
+        if ret != originalName:
+            print('[Rename For Onedrive]', originalName , 'to', ret)
+        return ret
+    return originalName
 
 
 def copy(from_path, to_path, output_head):
@@ -21,14 +31,16 @@ def copy(from_path, to_path, output_head):
                     son_to_path = to_path + '/' + son
                     numcount += copy(son_from_path, son_to_path, output_head + '-')
         else:
-            shutil.copy(from_path, to_path)
+            # 将文件重命名后复制
+            overwrite_to_path = checkOnedriveDisability(to_path)
+            shutil.copy(from_path, overwrite_to_path)
             print(output_head, '[file] ', to_path)
             numcount = 1
         return numcount
 
 
 canvasGrabPath = 'canvas_grab-master/files'
-syncPath = 'Work/2021 - 2022 Spring'
+syncPath = 'OneDrive - sjtu.edu.cn/Work/2022 Spring'
 
 
 
