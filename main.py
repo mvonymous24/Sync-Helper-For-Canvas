@@ -14,7 +14,7 @@ def checkOnedriveDisability(originalName, isChecking = True):
 
 
 def copy(from_path, to_path, output_head):
-    if os.path.isfile(to_path):
+    if os.path.isfile(checkOnedriveDisability(to_path)):
          # print('\"', to_path, '\" already exists.')
         return 0
     else:
