@@ -6,7 +6,7 @@ from os import walk
 def checkOnedriveDisability(originalName, isChecking = True):
     if isChecking:
         ret = str.replace(originalName, '/ ', '/')
-        print('[Rename For Onedrive]', originalName, 'to', ret)
+        # print('[Rename For Onedrive]', originalName, 'to', ret)
         if ret != originalName:
             print('[Rename For Onedrive]', originalName , 'to', ret)
         return ret
